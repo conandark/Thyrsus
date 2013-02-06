@@ -54,6 +54,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Network\Buffer.cs" />
+    <Compile Include="Classes\Network\Method.cs" />
+    <Compile Include="Classes\Network\Packet.cs" />
+    <Compile Include="Classes\Network\Header.cs" />
+    <Compile Include="Classes\Network\PacketLengthManager.cs" />
+    <Compile Include="Classes\PCHandler.cs" />
+    <Compile Include="Classes\Network\IPacket.cs" />
     <Compile Include="Classes\Worker.cs" />
     <Compile Include="Forms\fDebug.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\Network\Packets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\DataProvider\Shared.csproj">
+      <Project>{37584db0-6302-4cd3-a3cb-e35808ae8738}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
