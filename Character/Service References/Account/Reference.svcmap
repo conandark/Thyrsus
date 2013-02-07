@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="afe43bde-ba32-4bf2-9325-7c8d9aea4ad3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://127.0.0.1:5000/Inter/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="32422bce-d089-42ab-b247-e3c49a46b775" SourceId="1" SourceUrl="net.tcp://127.0.0.1:5000/Inter/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="c6b74255-f834-4382-a259-0e5d4c932d72" SourceId="1" SourceUrl="net.tcp://127.0.0.1:5000/Inter/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6f221f0d-145f-4384-8e4e-ff2521938ea5" SourceId="1" SourceUrl="net.tcp://127.0.0.1:5000/Inter/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="37a79aa1-0cb5-4ec6-9920-01f235e6d536" SourceId="1" SourceUrl="net.tcp://127.0.0.1:5000/Inter/mex" />
+    <MetadataFile FileName="Thyrsus.Shared.xsd" MetadataType="Schema" ID="2c08d511-3191-4a23-b9dc-0d63e08704c2" SourceId="1" SourceUrl="net.tcp://127.0.0.1:5000/Inter/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

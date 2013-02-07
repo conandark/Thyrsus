@@ -8,7 +8,7 @@ using Thyrsus.Shared.Inter;
 
 namespace Thyrsus.Account.Classes
 {
-    class Inter : IAccount
+    public class Inter : IAccount
     {
         public Ah_Logon_Exist Ha_Logon(int aid, int authcode, byte sex, int userCount, int sid, int ip)
         {
@@ -32,9 +32,9 @@ namespace Thyrsus.Account.Classes
 
         public bool RegisterServer(int sid, string ip, int port, string name, ServerTypes type)
         {
-            Logging.Debug(string.Format(" {0}{1} {2} {3}", sid.ToString().PadLeft(3),
-                              type.ToString().PadLeft(5), ip.PadRight(16), name));
-            Worker.Singleton.Serverlist.Add(new Serverinformation() { ip = Helper.IpToInt(ip), port = port, type = type, name = name, count = 0, SID = sid });
+            Logging.Debug(string.Format(" {0} {1} {2} {3}", sid.ToString().PadLeft(3), type.ToString().PadLeft(5), ip.PadRight(16), name));
+            var server = Worker.Singleton.Serverlist.RemoveAll(s => s.SID == sid);
+            Worker.Singleton.Serverlist.Add(new Serverinformation() { ip = Helper.IpToLong(ip), port = port, type = type, name = name, count = 0, SID = sid });
             return true;
         }
     }

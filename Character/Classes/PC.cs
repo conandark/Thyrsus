@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 using Thyrsus.Shared;
 using Thyrsus.Shared.Network;
 
-namespace Thyrsus.Account.Classes
+namespace Thyrsus.Character.Classes
 {
     public class PC : Shared.PC
     {
-        public Network.Packets.Ac_Accept_Login AcceptPacket;
-        public string RegNum { get; set; }
-        public byte Sex { get; set; }
+        public int Aid { get; set; }
+        public GetCharInfoResult[] Characters;
 
         public PC()
             : base()
@@ -81,6 +80,7 @@ namespace Thyrsus.Account.Classes
                             using (var bw = new BinaryWriter(ms))
                             {
                                 p.WriteTo(bw);
+                                Logging.Debug(ms.ToArray().Hexdump());
                                 Socket.Send(ms.ToArray());
                             }
                         }
@@ -99,7 +99,7 @@ namespace Thyrsus.Account.Classes
         {
             while (Socket.Connected)
             {
-                if (ManualResetEvent.WaitAny(new [] {  this.clientAbort, Worker.Singleton.ServerShutdown}, 10) == 0)
+                if (ManualResetEvent.WaitAny(new[] { this.clientAbort, Worker.Singleton.ServerShutdown }, 10) == 0)
                 {
                     return;
                 }

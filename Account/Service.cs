@@ -5,7 +5,7 @@ namespace Thyrsus.Account
 {
     public partial class Service : ServiceBase
     {
-        private Worker _worker;
+        private Worker worker;
 
         public Service()
         {
@@ -14,12 +14,13 @@ namespace Thyrsus.Account
 
         protected override void OnStart(string[] args)
         {
-            _worker = new Worker();
-            _worker.Start();
+            worker = new Worker();
+            worker.Start();
         }
 
         protected override void OnStop()
         {
+            worker.Stop();
         }
     }
 }

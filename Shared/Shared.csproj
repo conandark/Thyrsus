@@ -43,7 +43,9 @@
     <Compile Include="Ah_Logon_Exist.cs" />
     <Compile Include="BinaryReaderExtensions.cs" />
     <Compile Include="BinaryWriterExtensions.cs" />
+    <Compile Include="ByteArrayExtensions.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IDataProvider.cs" />

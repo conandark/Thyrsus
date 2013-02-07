@@ -16,7 +16,7 @@ namespace Thyrsus.Account.Classes
         public ManualResetEvent ServerShutdown;
         public static Worker Singleton;
 
-        private const int port = 6666;
+        private const int port = 6900;
         private TcpListener listener;
         private List<ServiceHost> services;
 

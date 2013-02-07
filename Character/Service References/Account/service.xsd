@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Thyrsus.Shared" />
+  <xs:element name="RegisterServer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sid" type="xs:int" />
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="port" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="type" type="q1:ServerTypes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegisterServerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegisterServerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ha_Logon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="aid" type="xs:int" />
+        <xs:element minOccurs="0" name="authcode" type="xs:int" />
+        <xs:element minOccurs="0" name="sex" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="userCount" type="xs:int" />
+        <xs:element minOccurs="0" name="sid" type="xs:int" />
+        <xs:element minOccurs="0" name="ip" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ha_LogonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Thyrsus.Shared" minOccurs="0" name="Ha_LogonResult" nillable="true" type="q2:Ah_Logon_Exist" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

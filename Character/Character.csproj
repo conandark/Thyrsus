@@ -36,9 +36,43 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="character.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>character.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="character.dbml.layout">
+      <DependentUpon>character.dbml</DependentUpon>
+    </None>
     <None Include="character.ini" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Account\service.wsdl" />
+    <None Include="Service References\Account\service.xsd" />
+    <None Include="Service References\Account\service1.xsd" />
+    <None Include="Service References\Account\service2.xsd" />
+    <None Include="Service References\Account\Thyrsus.Character.Account.Ah_Logon_Exist.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Account\Thyrsus.Shared.xsd" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="character.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>character.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CharacterInfo.cs" />
+    <Compile Include="Classes\Config.cs" />
+    <Compile Include="Classes\Inter.cs" />
+    <Compile Include="Classes\Network\Packets\Ch_Enter.cs" />
+    <Compile Include="Classes\Network\Packets\Hc_Accept_Enter.cs" />
+    <Compile Include="Classes\Network\Packets\Hc_Aid.cs" />
+    <Compile Include="Classes\Network\Packets\Hc_Block_Character.cs" />
+    <Compile Include="Classes\Network\Packets\Hc_Second_Password_Login.cs" />
+    <Compile Include="Classes\PC.cs" />
     <Compile Include="Classes\Worker.cs" />
     <Compile Include="Forms\fDebug.cs">
       <SubType>Form</SubType>
@@ -47,6 +81,16 @@
       <DependentUpon>fDebug.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Account\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -56,8 +100,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -66,6 +114,33 @@
     <EmbeddedResource Include="Forms\fDebug.resx">
       <DependentUpon>fDebug.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Account\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Account\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Account\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{37584db0-6302-4cd3-a3cb-e35808ae8738}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

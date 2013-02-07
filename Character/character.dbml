@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Character" Class="characterDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Character;Integrated Security=True" SettingsObjectName="Thyrsus.Character.Properties.Settings" SettingsPropertyName="CharacterConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetCharInfo" Method="GetCharInfo">
+    <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetCharInfoResult">
+      <Column Name="GID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CharName" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="job" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="clevel" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="sppoint" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="exp" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jobpoint" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="STR" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AGI" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="VIT" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="INT" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEX" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="LUK" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="hp" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="maxhp" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sp" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="maxsp" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="AID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="mapname" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="xPos" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="yPos" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="GuildID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CharNum" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="speed" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="money" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jobexp" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="virtue" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="honor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="haircolor" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="joblevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bodystate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="healthstate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sxPos" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="syPos" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="restartMapName" Type="System.String" DbType="VarChar(24) NOT NULL" CanBeNull="false" />
+      <Column Name="effectstate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="head" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="weapon" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="accessory" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="headpalette" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="bodypalette" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="accessory2" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="accessory3" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="shield" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="party_config" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="equipwinopen" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="font" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="checksum" Type="System.Data.Linq.Binary" DbType="VarBinary(4)" CanBeNull="true" />
+      <Column Name="delrevdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="bIsChangedCharName" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="robepalette" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="chr_slot_change" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="chr_name_changeCNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

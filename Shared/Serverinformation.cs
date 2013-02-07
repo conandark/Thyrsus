@@ -8,7 +8,7 @@ namespace Thyrsus.Shared
 {
     public class Serverinformation
     {
-        public int ip { get; set; }
+        public long ip { get; set; }
         public int port { get; set; }
         public string name { get; set; }
         public ServerTypes type { get; set; }

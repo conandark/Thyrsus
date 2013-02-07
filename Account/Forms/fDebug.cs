@@ -13,17 +13,22 @@ namespace Thyrsus.Account.Forms
 {
     public partial class fDebug : Form
     {
-        private Worker _worker;
+        private Worker worker;
 
         public fDebug()
         {
             InitializeComponent();
-            _worker = new Worker();
+            worker = new Worker();
         }
 
         private void fDebug_Load(object sender, EventArgs e)
         {
-            _worker.Start();
+            worker.Start();
+        }
+
+        private void fDebug_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            worker.Stop();
         }
     }
 }

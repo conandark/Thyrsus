@@ -45,6 +45,7 @@ namespace Thyrsus.Account.Classes.Network.Packets
             output.Write(Gender);
             foreach (var srv in characterServers)
             {
+                Logging.Debug(string.Format("{0}, {1}, {2}", srv.name, srv.ip, srv.port));
                 output.Write((int)srv.ip);
                 output.Write((short)srv.port);
                 output.WriteCString(srv.name, 20);

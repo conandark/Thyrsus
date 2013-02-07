@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "fDebug";
             this.Text = "fDebug";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fDebug_FormClosing);
             this.Load += new System.EventHandler(this.fDebug_Load);
             this.ResumeLayout(false);
 

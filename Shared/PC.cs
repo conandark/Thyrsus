@@ -14,6 +14,8 @@ namespace Thyrsus.Shared
         public Socket Socket { get; set; }
         public Queue<IPacketOut> PacketQueue { get; set; }
         public string Ip { get; set; }
+        public string Id { get; set; }
+        public string Email { get; set; }
 
         protected readonly Network.Buffer buffer;
         protected Thread receiveThread;
