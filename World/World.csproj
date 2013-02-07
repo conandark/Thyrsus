@@ -63,7 +63,23 @@
     <None Include="world.ini" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AgitInvestMgr.cs" />
+    <Compile Include="Classes\BigMonster.cs" />
+    <Compile Include="Classes\ChangeMaterialMgr.cs" />
+    <Compile Include="Classes\Collection.cs" />
+    <Compile Include="Classes\CookingSystem.cs" />
+    <Compile Include="Classes\MonsterTransformMgr.cs" />
+    <Compile Include="Classes\PC.cs" />
+    <Compile Include="Classes\PCBattle.cs" />
+    <Compile Include="Classes\PCItem.cs" />
+    <Compile Include="Classes\PCItemInventoryMgr.cs" />
+    <Compile Include="Classes\PCPacketHandler.cs" />
+    <Compile Include="Classes\PCProperty.cs" />
+    <Compile Include="Classes\PCQuestEvent.cs" />
+    <Compile Include="Classes\PCSkill.cs" />
+    <Compile Include="Classes\ScriptMobTombInfo.cs" />
     <Compile Include="Classes\Worker.cs" />
+    <Compile Include="Classes\WorldConfigMgr.cs" />
     <Compile Include="Forms\fDebug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +95,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="lua51">
+      <HintPath>..\Depends\lua51.dll</HintPath>
+    </Reference>
+    <Reference Include="LuaInterface">
+      <HintPath>..\Depends\LuaInterface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -90,6 +112,12 @@
     <EmbeddedResource Include="Forms\fDebug.resx">
       <DependentUpon>fDebug.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\DataProvider\Shared.csproj">
+      <Project>{37584db0-6302-4cd3-a3cb-e35808ae8738}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
