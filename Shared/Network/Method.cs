@@ -4,9 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Thyrsus.Shared;
 
-namespace Thyrsus.Account.Classes.Network
+namespace Thyrsus.Shared.Network
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class MethodAttribute : Attribute
@@ -40,7 +39,7 @@ namespace Thyrsus.Account.Classes.Network
 
         static Method()
         {
-            foreach (var type in Assembly.GetExecutingAssembly().GetTypes().Where(type => type.GetInterface("IMethodIn") != null))
+            foreach (var type in Assembly.GetEntryAssembly().GetTypes().Where(type => type.GetInterface(typeof(IPacketIn).Name) != null))
             {
                 object[] attributes = type.GetCustomAttributes(typeof(MethodAttribute), true);
                 if (attributes.Length == 0) return;

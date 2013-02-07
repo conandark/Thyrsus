@@ -52,15 +52,28 @@
   <ItemGroup>
     <None Include="account.ini" />
     <None Include="App.config" />
+    <None Include="nLogin.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>nLogin.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nLogin.dbml.layout">
+      <DependentUpon>nLogin.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Network\Buffer.cs" />
-    <Compile Include="Classes\Network\Method.cs" />
-    <Compile Include="Classes\Network\Packet.cs" />
-    <Compile Include="Classes\Network\Header.cs" />
-    <Compile Include="Classes\Network\PacketLengthManager.cs" />
-    <Compile Include="Classes\PCHandler.cs" />
-    <Compile Include="Classes\Network\IPacket.cs" />
+    <Compile Include="Classes\Config.cs" />
+    <Compile Include="Classes\Inter.cs" />
+    <Compile Include="Classes\Network\Packets\Ac_Accept_Login.cs" />
+    <Compile Include="Classes\Network\Packets\Ac_Refuse_Login.cs" />
+    <Compile Include="Classes\Network\Packets\Ca_Login.cs" />
+    <Compile Include="Classes\Network\Packets\Sc_Notify_Ban.cs" />
+    <Compile Include="Classes\PC.cs" />
+    <Compile Include="Classes\SessionManager.cs" />
     <Compile Include="Classes\Worker.cs" />
     <Compile Include="Forms\fDebug.cs">
       <SubType>Form</SubType>
@@ -68,7 +81,17 @@
     <Compile Include="Forms\fDebug.Designer.cs">
       <DependentUpon>fDebug.cs</DependentUpon>
     </Compile>
+    <Compile Include="nLogin.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nLogin.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -77,9 +100,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Depends\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -107,10 +136,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Network\Packets\" />
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\DataProvider\Shared.csproj">
+    <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{37584db0-6302-4cd3-a3cb-e35808ae8738}</Project>
       <Name>Shared</Name>
     </ProjectReference>

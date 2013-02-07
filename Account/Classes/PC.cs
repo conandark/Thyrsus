@@ -6,47 +6,27 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Thyrsus.Account.Classes.Network;
+using Thyrsus.Shared;
+using Thyrsus.Shared.Network;
 
 namespace Thyrsus.Account.Classes
 {
-    public class PCHandler
+    public class PC : Shared.PC
     {
-        public Socket Socket { get; set; }
-        public Queue<IPacketOut> PacketQueue { get; set; }
+        public Network.Packets.Ac_Accept_Login AcceptPacket;
+        public string RegNum { get; set; }
+        public byte Sex { get; set; }
+        public string Email { get; set; }
+        public string Id { get; set; }
 
-        private readonly Network.Buffer buffer;
-        private readonly Thread receiveThread;
-        private readonly Thread senderThread;
-        private readonly Thread parseThread;
-        private ManualResetEvent clientAbort;
-        private DateTime timeout;
-
-        public PCHandler()
+        public PC()
+            : base()
         {
-            clientAbort = new ManualResetEvent(false);
-            PacketQueue = new Queue<IPacketOut>();
-
-            // creating the buffer for the ragnarok packets
-            buffer = new Network.Buffer();
-
             // start connection
             receiveThread = new Thread(Receive);
             senderThread = new Thread(Send);
             parseThread = new Thread(ParsePackets);
             timeout = DateTime.UtcNow;
-        }
-
-        public void Start()
-        {
-            receiveThread.Start();
-            senderThread.Start();
-            parseThread.Start();
-        }
-
-        public void Stop()
-        {
-            clientAbort.Set();
         }
 
         public void Receive()
@@ -70,20 +50,18 @@ namespace Thyrsus.Account.Classes
 
                     var recvBytes = Socket.Receive(byteRecv, SocketFlags.None);
                     this.timeout = DateTime.UtcNow;
-                    if (recvBytes != 0)
+                    if (recvBytes == 0)
                     {
-                        break;
+                        return;
                     }
 
                     buffer.Append(byteRecv, recvBytes);
                 } while (true);
             }
-            catch
+            finally
             {
-                // nevermind
+                clientAbort.Set();
             }
-
-            clientAbort.Set();
         }
 
         private void Send()
@@ -123,7 +101,7 @@ namespace Thyrsus.Account.Classes
         {
             while (Socket.Connected)
             {
-                if (this.clientAbort.WaitOne(10) || Worker.Singleton.ServerShutdown.WaitOne(10))
+                if (ManualResetEvent.WaitAny(new [] {  this.clientAbort, Worker.Singleton.ServerShutdown}, 10) == 0)
                 {
                     return;
                 }
@@ -147,12 +125,15 @@ namespace Thyrsus.Account.Classes
                             {
                                 var mi = Method.GetById(packet.Header.MethodId);
                                 if (mi != null)
+                                {
                                     mi.Parse(this, packet);
+                                }
                             }
                         }
                     }
                     catch (Exception ex)
                     {
+                        Logging.CriticalLog(ex.Message);
                         this.clientAbort.Set();
                     }
                 }

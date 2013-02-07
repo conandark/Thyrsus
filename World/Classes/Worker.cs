@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Thyrsus.Shared;
 
@@ -9,6 +12,11 @@ namespace Thyrsus.World.Classes
 {
     public class Worker
     {
+        public ManualResetEvent ServerShutdown;
+        public static Worker Singleton;
+
+        private const int port = 5000;
+
         private WorldConfigMgr _worldConfigMgr;
         private CookingSystem _cookingSystem;
         private ScriptMobTombInfo _scriptMobTombInfo;
@@ -17,12 +25,16 @@ namespace Thyrsus.World.Classes
         private ChangeMaterialMgr _changeMaterialMgr;
         private Collection _collection;
         private MonsterTransformMgr _monsterTransformMgr;
+        private TcpListener listener;
 
         public Worker()
         {
             try
             {
                 Logging.CriticalLog(Environment.NewLine + LogoGenerator.GeneratorLogo());
+
+                ServerShutdown = new ManualResetEvent(false);
+                Worker.Singleton = this;
 
                 _worldConfigMgr = new WorldConfigMgr();
                 _worldConfigMgr.Init();
@@ -45,7 +57,29 @@ namespace Thyrsus.World.Classes
 
         public void Start()
         {
-            throw new NotImplementedException();
+            Thread th = new Thread(WorkerThread);
+            th.Start();
+        }
+
+        public void Stop()
+        {
+            ServerShutdown.Set();
+        }
+
+        public void WorkerThread()
+        {
+            this.listener = new TcpListener(new IPEndPoint(System.Net.IPAddress.Any, port));
+            this.listener.Start();
+            do
+            {
+                while (this.listener.Pending() == false)
+                {
+                    if (ServerShutdown.WaitOne(100)) break;
+                }
+                PC pc = new PC() { Socket = this.listener.AcceptSocket() };
+                Thread th = new Thread(pc.Start);
+                th.Start();
+            } while (true);
         }
     }
 }

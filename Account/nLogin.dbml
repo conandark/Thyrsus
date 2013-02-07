@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="nLogin" Class="nLoginDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sql2008;Initial Catalog=nLogin;Integrated Security=True" SettingsObjectName="Thyrsus.Account.Properties.Settings" SettingsPropertyName="nLoginConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetSexInfo" Method="GetSexInfo">
+    <Parameter Name="AID" Parameter="aID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetSexInfoResult">
+      <Column Name="sex" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="RegNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.AuthenticateUser" Method="AuthenticateUser">
+    <Parameter Name="ID" Parameter="iD" Type="System.String" DbType="VarChar(24)" />
+    <ElementType Name="AuthenticateUserResult">
+      <Column Name="ID" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Passwd" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="grade" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="isConfirmed" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="AID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="toblockdate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="currentdate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

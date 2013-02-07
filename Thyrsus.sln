@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account", "Account\Account.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Character", "Character\Character.csproj", "{9F64799C-EFEF-4CC1-9135-009767A3D8BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\DataProvider\Shared.csproj", "{37584DB0-6302-4CD3-A3CB-E35808AE8738}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{37584DB0-6302-4CD3-A3CB-E35808AE8738}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSQL", "MSSQLDataProvider\MSSQL.csproj", "{7B7858A5-7DB3-4663-B5F0-2816A4DE9693}"
 EndProject

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Thyrsus.Account.Classes.Network
+namespace Thyrsus.Shared.Network
 {
     public class Buffer
     {

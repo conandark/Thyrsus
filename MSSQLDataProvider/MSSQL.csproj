@@ -43,7 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\DataProvider\Shared.csproj">
+    <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{37584db0-6302-4cd3-a3cb-e35808ae8738}</Project>
       <Name>Shared</Name>
     </ProjectReference>
