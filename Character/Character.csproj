@@ -68,9 +68,11 @@
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\Inter.cs" />
     <Compile Include="Classes\Network\Packets\Ch_Enter.cs" />
+    <Compile Include="Classes\Network\Packets\Ch_Select_Char.cs" />
     <Compile Include="Classes\Network\Packets\Hc_Accept_Enter.cs" />
     <Compile Include="Classes\Network\Packets\Hc_Aid.cs" />
     <Compile Include="Classes\Network\Packets\Hc_Block_Character.cs" />
+    <Compile Include="Classes\Network\Packets\Hc_Notify_Zonesvr.cs" />
     <Compile Include="Classes\Network\Packets\Hc_Second_Password_Login.cs" />
     <Compile Include="Classes\PC.cs" />
     <Compile Include="Classes\Worker.cs" />
